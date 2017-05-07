@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { margin: 2%; }
+    table, td, th { border: 1px solid grey;
+                    padding: 5px;
+                    text-align: left}
+    table { table-layout: auto }
+    #main-button { margin-bottom: 10px }
+    #main-title { margin-bottom: 20px }
+  </style>
+  <head>
+    <title>Super Sprinter 3000</title>
+  </head>
+  <body>
+    <h3 id="main-title" ><b>User Story Manager</b></h3>
+    <a href="/story" class="btn btn-default" id="main-button">Add new User Story</a>
+    <br>
+    <div style="overflow-x:auto;">
+      <table id="main-table">     
+        {% for name in fieldnames %}
+          <th> {{ name }} </th>
+        {% endfor %}
+         
+        {% for line in data_set%}
+          <tr>
+        
+            {% for value in line %}
+              <td> {{ value }} </td>
+            {% endfor %}
+        
+            <td>
+              <a href="/story/{{ line[0] }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-pencil"></i>
+              </a>
+            </td>
+            <td>
+              <form action="/story/{{ line[0] }}/del" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn btn-default">
+                  <i class="glyphicon glyphicon-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
