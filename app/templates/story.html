@@ -51,53 +51,50 @@
 body {
   margin: 2%
 }
-
-.first-half-of-form{
-  width: 390px
-}
-
 textarea {
   height: 15%
-}
-
-p { margin-bottom: -20px;
-    margin-top: 8px}
-
-h3 {
-    margin-bottom: 0px
-}
-
+  }
+.box-title { 
+  margin-bottom: -16px;
+  margin-top: 4px
+  }
+.first-half-of-form {
+  width: 390px
+  }
+#main-title {
+  margin-bottom: 0px
+  }
   </style>
   <head>
     <title> Super Sprinter 3000 - {{ title }} </title>
   </head>
   <body>
-    <h3> User Story manager - {{ title }} </h3>
+    <h3 id="main-title"> User Story manager - {{ title }} </h3>
 
     <form autocomplete=off action= {{ action }} method="POST" id="story">
         
-        <br><p>Story Title</p><br>
+        <br><p class="box-title">Story Title</p><br>
           <input type="text" name="Story Title" required  class="first-half-of-form" value= {{ values[1] }}><br>
         
-        <br><p>User Story</p><br>
+        <br><p class="box-title">User Story</p><br>
           <textarea name="User Story" id="story" required class="first-half-of-form">{{ values[2] }}</textarea><br>
         
-        <br><p>Acceptance Criteria</p><br>
+        <br><p class="box-title">Acceptance Criteria</p><br>
           <textarea name="Acceptance Criteria" id="story" required class="first-half-of-form">{{ values[3] }}</textarea><br>
         
-        <br><p>Business Value</p><br>
+        <br><p class="box-title">Business Value</p><br>
         <div class="tooltip">
           <span class="tooltiptext"> smallest value: 100 greatest value: 1500 allow only values divisible by 100 </span>
           <input type="number" name="Business Value" min="100" max="1500" step="100" required value= {{ values[4] }}><br>
         </div>
 
-        <br><br><p>Estimation (h)</p><br>
+        <br><br><p class="box-title">Estimation (h)</p><br>
         <div class="tooltip">
           <span class="tooltiptext"> smallest value: 0.5 greatest value: 40 allow only values divisible by 0.5 </span>
           <input type="number" name="Estimation" min="0.5" max="40" step="0.5" required value= {{ values[5] }}><br>
         </div>
         
-        <br><br><p>Status</p><br>
+        <br><br><p class="box-title">Status</p><br>
           <select name="Status" required>
             <option selected disabled>{{ values[6] }}</option>
             <option value="Planning">Planning</option>
